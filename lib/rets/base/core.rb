@@ -130,6 +130,7 @@ module RETS
           @request_time = Time.now.utc.to_f - start
           xml_doc = MultiXml.parse(response.body)
           if xml_doc.has_key?("RETS")
+            @rets_data = {}
             @rets_data[:code] = xml_doc["RETS"]["ReplyCode"]
             @rets_data[:text] = xml_doc["RETS"]["ReplyText"]
             if @rets_data[:code] != "0" and @rets_data[:code] != "20201"
