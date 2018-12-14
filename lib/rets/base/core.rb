@@ -138,8 +138,8 @@ module RETS
             end
             if xml_doc["RETS"].has_key?("METADATA")
               if xml_doc["RETS"]["METADATA"].has_key?("METADATA_SYSTEM")
-                @rets_data[:version] = xml["RETS"]["METADATA"]["METADATA_SYSTEM"]["Version"]
-                @rets_data[:date] = xml["RETS"]["METADATA"]["METADATA_SYSTEM"]["Date"]
+                @rets_data[:version] = xml_doc["RETS"]["METADATA"]["METADATA_SYSTEM"]["Version"]
+                @rets_data[:date] = xml_doc["RETS"]["METADATA"]["METADATA_SYSTEM"]["Date"]
               end
             end
           end
