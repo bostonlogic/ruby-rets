@@ -297,11 +297,11 @@ module RETS
               if digest
                 save_digest(digest)
                 @auth_mode = :digest
-              elsif !@headers["Authorization"]
+              elsif @headers["Authorization"]
+                @auth_mode = :oauth
+              else
                 @headers.merge!("Authorization" => create_basic)
                 @auth_mode = :basic
-              else
-                @auth_mode = :oauth
               end
 
               unless @auth_mode
